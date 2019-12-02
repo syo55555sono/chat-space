@@ -1,5 +1,6 @@
 # README
 
+
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -10,23 +11,15 @@
 - has_many :posts
 - has_many :groups
 
+
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |groupname|string|null: false|
-|user_id|integer|null false, foreign_key: true|
 ### Association
 - has_many :groups_users
-- has_many :posts*******
+- has_many :users,  through:  :groups_users
 
-## postsテーブル
-Column|Type|Options|
-|------|----|-------|
-|text|text|null: false|
-|image|integer||
-|group_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :group
 
 ## groups_usersテーブル
 |Column|Type|Options|
@@ -36,3 +29,17 @@ Column|Type|Options|
 ### Association
 - belongs_to :group
 - belongs_to :user
+
+
+## postsテーブル
+Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+|image|integer||
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :group
+- belongs_to :user
+
+
