@@ -1,0 +1,28 @@
+.index-main {
+  height: 100%;
+  width: 100%;
+  background-color:#ffffff;
+  
+  .main-header {
+    height: 100px;
+
+    // &__left {
+    //   height: 100%;
+    //   margin-left: 40px;
+
+    // }
+  }
+
+  .chat-main {
+    background-color: #fafafafa;
+    height: calc(100vh - 190px);
+  }
+
+  .main-footer {
+    background-color: #d2d2d2;
+    height: 90px;
+
+  }
+
+}
+
