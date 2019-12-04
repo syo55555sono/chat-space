@@ -25,10 +25,9 @@
           display: flex;
           justify-content: flex-end;
           align-items: center;
-        li {
-          a {
-            color: white;
-          }
+        .icon {
+          color: white;
+          margin-left: 5px;
         }
       }
     }
