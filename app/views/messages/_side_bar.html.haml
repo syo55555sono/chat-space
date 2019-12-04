@@ -1,0 +1,30 @@
+.index-side
+  .side-header
+    .side-header__box
+      %p.side-header__box__name
+        名前
+      %ul.side-header__box__icon 
+        %li.side-header__box__edit-user
+        = link_to "#" do
+          = icon('fas', 'edit',  class: "icon")
+        %li.side-header__box__new-group
+        = link_to "#" do
+          = icon('fas', 'cog',  class:"icon")
+
+
+
+  .groups
+    = link_to "#", class:"group" do
+      %p.group__group-name
+        test
+      %p.group__latest-message
+        まだありません
+    
+    = link_to "#", class:"group" do
+      %p.group__group-name
+        test2
+      %p.group__latest-message
+        まだありません2
+  
+
+
