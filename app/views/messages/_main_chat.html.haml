@@ -1,37 +1,25 @@
 .index-main
   .main-header
     .main-header__left
-    
       %p.main-header__left__group
-        グループ名
+        #{@group.name}
       %p.main-header__left__name
-        自分の名前
+        member:
+        - @group.users.each do |user|
+          #{user.name}
 
     .main-header__right
-      = link_to "#", class:"btn" do
+      = link_to 'edit', class:"btn" do
         %p.main-header__right__btn
           Edit 
 
   .messages
-    .message
-      .message__info
-        %p.message__info__talker
-          名前1
-        %p.message__info__date
-          2019/12/01 12:00:00
-      .message__text
-        チャットテキスト1
+    = render @messages
     
-    .message
-      .message__info
-        %p.message__info__talker
-          名前2
-        %p.message__info__date
-          2019/12/01 12:10:00
-      .message__text
-        チャットテキスト2
 
   .form
+    = form_for [@group, @message] do |f|
+      -# = f.text_field :content, class: 'new__message', placeholder: 'type a message'
     %form.new-message
       .input-box
         %input.input-box__text{placeholder: "type a message"}/
@@ -40,3 +28,12 @@
           %input.input-box__image__file{type: "file"}
       
       %input.submit-btn{"data-disable-with":"Send", name: "commit", type: "submit", value: "Send"}/
+
+    -# .form
+    -#   = form_for [@group, @message] do |f|
+    -#     = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+    -#     .form__mask
+    -#       = f.label :image, class: 'form__mask__image' do
+    -#         = icon('fas', 'image', class: 'icon')
+    -#         = f.file_field :image, class: 'hidden'
+    -#     = f.submit 'Send', class: 'form__submit'
