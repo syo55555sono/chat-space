@@ -54,6 +54,7 @@
   .messages {
     background-color: #fafafafa;
     height: calc(100vh - 190px);
+    overflow:scroll;
     padding-top: 35px;
     padding-left: 40px;
 
@@ -90,7 +91,9 @@
     height: 90px;
 
     .new-message {
+      position: relative;
       display: flex;
+      width: 100%;
     }
 
     .input-box {
@@ -113,7 +116,7 @@
         cursor: pointer;
       }
 
-      .i {
+      .icon {
         display: inline-block;
         font-style: normal;
         font-variant: normal;
@@ -121,7 +124,7 @@
         line-height: 1;
       }
       
-      .input-box__image__file {
+      .hidden {
         display: none;
       }
     }
