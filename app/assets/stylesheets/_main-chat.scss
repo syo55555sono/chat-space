@@ -93,7 +93,8 @@
     .new-message {
       position: relative;
       display: flex;
-      width: 100%;
+      width: 950px;
+      padding: 11px
     }
 
     .input-box {
@@ -122,6 +123,9 @@
         font-variant: normal;
         text-rendering: auto;
         line-height: 1;
+        position: absolute;
+        top: -45px;
+        right:115px;
       }
       
       .hidden {
@@ -136,6 +140,10 @@
     background-color: #38aef0;
     color: white;
     cursor: pointer;
+    float: right;
+    position: absolute;
+    top: -50px;
+    left: 960px;
     }
   }
 }
