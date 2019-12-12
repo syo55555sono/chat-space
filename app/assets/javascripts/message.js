@@ -58,6 +58,7 @@ window.addEventListener('DOMContentLoaded', (function(){
     })
   })
   var reloadMessages = function() {
+    if (location.href.match(/\/groups\/\d+\/messages/)){
     last_message_id =  $('.message').last().data('id');
     $.ajax({
       url: "api/messages",
@@ -77,5 +78,8 @@ window.addEventListener('DOMContentLoaded', (function(){
       alert('自動更新に失敗しました');
     });
   };
+  };
+  
   setInterval(reloadMessages, 7000);
+  
 }))
