@@ -1,30 +1,30 @@
 window.addEventListener('DOMContentLoaded', (function(){
   function buildHTML(message){
     if (message.image) {
-      var html = `<div class="message">
+      var html = `<div class="message" data-id="${message.id}">
                     <div class="message__info">
                       <p class="message__info__talker">
-                      ${message.name}
+                        ${message.name}
                       </p>
                       <p class="message__info__date">
-                      ${message.date}
+                        ${message.date}
                       </p>
                     </div>
                     <p class="message__text">
-                      <div>
-                      ${message.content}
+                      <div class="lower-message__content">
+                        ${message.content}
                       </div>
-                      ${message.image}
+                        <img class="lower-message__image" src="${message.image}">
                     </p>
                   </div>`
     }  else {
-        var html = `<div class="message">
+        var html = `<div class="message" data-id="${message.id}">
         <div class="message__info">
           <p class="message__info__talker">
-          ${message.name}
+            ${message.name}
           </p>
           <p class="message__info__date">
-          ${message.date}
+            ${message.date}
           </p>
         </div>
         <div class="message__text">
@@ -57,4 +57,25 @@ window.addEventListener('DOMContentLoaded', (function(){
       alert('メッセージ送信に失敗しました');
     })
   })
+  var reloadMessages = function() {
+    last_message_id =  $('.message').last().data('id');
+    $.ajax({
+      url: "api/messages",
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      var insertHTML = '';
+      $.each(messages, function(i, message) {
+        insertHTML += buildHTML(message)
+      });
+      $('.messages').append(insertHTML);
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  };
+  setInterval(reloadMessages, 7000);
 }))
