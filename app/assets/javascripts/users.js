@@ -72,7 +72,7 @@ $(function() {
         appendUserToMemberList(name,id);
       });
 
-      $(document).on("click", '.user-search-remove', function() {
+      $("#chat-group-users").on("click", '.js-remove-btn', function() {
         $(this).parent().remove();
       });
 });
